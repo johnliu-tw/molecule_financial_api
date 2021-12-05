@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Symfony\Component\HttpKernel\Exception\BadRequestHttpException;
 use App\Http\Requests\ConvertRequest;
 use App\Services\ApiService;
+use Exception;
 
 class ConvertController extends Controller
 {
@@ -60,6 +61,7 @@ class ConvertController extends Controller
     private function generateErrorStructure(string $message): array
     {
         return [
+            'success' => false,
             'errors' => [
                 'third_party' => $message
             ]
